@@ -26,6 +26,10 @@ from util.client_transcribe import transcribe_check, transcribe_send, transcribe
 from util.client_adjust_srt import adjust_srt
 
 from util.empty_working_set import empty_current_working_set
+from util.client_http_api import run_service
+
+import threading
+from fastapi import FastAPI
 
 # 确保根目录位置正确，用相对路径加载模型
 BASE_DIR = os.path.dirname(__file__); os.chdir(BASE_DIR)
@@ -117,4 +121,8 @@ if __name__ == "__main__":
     if sys.argv[1:]:
         typer.run(init_file)
     else:
+        thread = threading.Thread(target=run_service)
+        thread.start()
         init_mic()
+
+

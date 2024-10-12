@@ -14,8 +14,9 @@ class ServerConfig:
 
 # 客户端配置
 class ClientConfig:
-    addr = '127.0.0.1'          # Server 地址
+    addr = '10.70.21.124'       # Server 地址
     port = '6016'               # Server 端口
+    api_port=11110            # api端口
 
     shortcut     = 'caps lock'  # 控制录音的快捷键，默认是 CapsLock
     hold_mode    = True         # 长按模式，按下录音，松开停止，像对讲机一样用。
